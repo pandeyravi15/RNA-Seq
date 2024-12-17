@@ -40,3 +40,14 @@ DEG <- function(countdata,
   All_res <<- as.data.frame(res[, c(7:8, 1:6)])
   
 }
+
+
+map_function.df <- function(x, inputtype, outputtype) {
+  mapIds(
+    org.Mm.eg.db,
+    keys = row.names(x),
+    column = outputtype,
+    keytype = inputtype,
+    multiVals = "first"
+  )
+}
